@@ -1,26 +1,35 @@
+// Function to add listener to all p elements of table id
 const addListenersTo = (tableid) => {
+    // get table and p elements
     let table = document.getElementById(tableid);
-    let trs = table.getElementsByTagName('tr');
+    let ps = table.getElementsByTagName('p');
 
-    for (let i = 0; i < trs.length; i++) {
-        let tr = trs[i];
-        let tds = tr.getElementsByTagName('td');
-    
-        for (let j = 0; j < tds.length; j++) {
-        let td = tds[j];
-        let ps = td.getElementsByTagName('p');
-        
-        for (let k = 0; k < ps.length; k++) {
-            let p = ps[k];
-            p.addEventListener('click', () => {
-                window.alert("You clicked a p element within the table " + tableid);
-                });
-            }
-        }
+    // Loop through p elements and add listener with function to each p
+    for (let i = 0; i < ps.length; i++) {
+        let p = ps[i];
+        p.addEventListener('click', () => {
+            window.alert("You clicked a p element within the table " + tableid);
+            });
     }
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+// Function to add listener to all p elements of body
+const addListenersToBody = () => {
+    // Get Ps from body excluding the ones from the tables
+    let bodyPs = document.querySelectorAll('body p:not(table p)');
+
+    // For each P, add listener with function
+    bodyPs.forEach(p => {
+        p.addEventListener('click', () => {
+            window.alert('You clicked a p element in the body');
+        });
+    });
+}
+
+// Add listener to wait for content to load
+document.addEventListener("DOMContentLoaded", () => {
+    // Apply listeners to all elements
     addListenersTo("table1");
     addListenersTo("table2");
-})
+    addListenersToBody();
+});
