@@ -1,0 +1,43 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 100px;
+    height: 100%vh;
+    background-color: #f1f1f1;
+}
+
+.mini-pictures {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mini-pictures li {
+    margin-bottom: 5px;
+}
+
+.mini-pictures img {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+}
+
+.main-content {
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.image-container {
+    text-align: center;
+    padding: 10px;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+}
